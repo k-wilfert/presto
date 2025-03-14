@@ -1,0 +1,25 @@
+Name: Keith Wilfert
+
+Date: March 14, 2025
+
+Issue: Adding support for JDBC catalog to Presto Iceberg
+
+News:
+Given this help to working on by Zach:
+Hmm I don't think I have a good PR to help you here.
+However, I to get an idea of what you need to do, start by looking at the IcebergRestCatalogFactory class.
+Essentially, you need to copy what this class does, except replace RestCatalog instances with JdbcCatalog types
+The JdbcCatalog type comes from the org.apache.iceberg.jdbc package which is a third-party dependency
+
+What has been done:
+Made file: IcebergJdbcCatalogFractory.java
+Location:
+
+Added thing to the pom.xml file in iceberg:
+<dependency>
+    <groupId>org.apache.iceberg</groupId>
+    <artifactId>iceberg-jdbc</artifactId>
+    <version>${iceberg.version}</version>
+</dependency>
+
+ensure that presto-iceberg includes the Iceberg JDBC dependency.
