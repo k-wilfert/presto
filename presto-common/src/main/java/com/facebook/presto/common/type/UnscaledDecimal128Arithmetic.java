@@ -16,7 +16,8 @@ package com.facebook.presto.common.type;
 import io.airlift.slice.Slice;
 import io.airlift.slice.Slices;
 import io.airlift.slice.XxHash64;
-import sun.misc.Unsafe;
+import sun.misc
+        .Unsafe;
 
 import java.lang.reflect.Field;
 import java.math.BigInteger;

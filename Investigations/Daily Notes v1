@@ -1,0 +1,76 @@
+Template:
+Name:
+
+Date:
+
+Issue:
+
+News:
+
+What has been done:
+
+Location:
+
+************************************************************************************************************************************
+
+Name: Keith Wilfert
+
+Date: March 14, 2025
+
+Issue: Adding support for JDBC catalog to Presto Iceberg
+
+News:
+Given this help to working on by Zach:
+Hmm I don't think I have a good PR to help you here.
+However, I to get an idea of what you need to do, start by looking at the IcebergRestCatalogFactory class.
+Essentially, you need to copy what this class does, except replace RestCatalog instances with JdbcCatalog types
+The JdbcCatalog type comes from the org.apache.iceberg.jdbc package which is a third-party dependency
+
+What has been done:
+Made file: IcebergJdbcCatalogFractory.java
+Location:
+
+Added thing to the pom.xml file in iceberg:
+<dependency>
+    <groupId>org.apache.iceberg</groupId>
+    <artifactId>iceberg-jdbc</artifactId>
+    <version>${iceberg.version}</version>
+</dependency>
+
+ensure that presto-iceberg includes the Iceberg JDBC dependency.
+
+
+************************************************************************************************************************************
+
+Name: Keith Wilfert
+
+Date: 4/1/25
+
+Issue: Adding support for JDBC catalog to Presto Iceberg
+
+What to do: IcebergRestCatalogFactory class. Essentially, you need to copy what this class does,
+except replace RestCatalog instances with JdbcCatalog types
+The JdbcCatalog type comes from the org.apache.iceberg.jdbc package which is a third-party dependency
+
+
+News:
+My clone of presto does not include the bin launcher script
+
+What has been done: recloned, new branch made and then saved.
+
+Location: \\wsl.localhost\Ubuntu\home\wilfek\projects\presto
+
+************************************************************************************************************************************
+Name:Keith Wilfert
+
+Date: 4/4/25
+
+Issue:Adding support for JDBC catalog to Presto Iceberg
+
+News: I have setup the ability to properly test and debug code written. All that is to create 3-4 files depending on the need of a configuration file, along with adding proper documentation to match this new class.
+
+What has been done: This new branch has the same progress from the branch that has had multiple commits. Despite it being a fresh clone, I have imported the commmits from the prevois branch into the current branch. Along with this I have added the same notes from the old branch.
+
+Location:
+
+************************************************************************************************************************************
