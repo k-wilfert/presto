@@ -27,7 +27,7 @@ Essentially, you need to copy what this class does, except replace RestCatalog i
 The JdbcCatalog type comes from the org.apache.iceberg.jdbc package which is a third-party dependency
 
 What has been done:
-Made file: IcebergJdbcCatalogFractory.java
+Made file: IcebergJdbcCatalogFactory.java
 Location:
 
 Added thing to the pom.xml file in iceberg:
@@ -69,7 +69,7 @@ Issue:Adding support for JDBC catalog to Presto Iceberg
 
 News: I have setup the ability to properly test and debug code written. All that is to create 3-4 files depending on the need of a configuration file, along with adding proper documentation to match this new class.
 
-What has been done: This new branch has the same progress from the branch that has had multiple commits. Despite it being a fresh clone, I have imported the commmits from the prevois branch into the current branch. Along with this I have added the same notes from the old branch.
+What has been done: This new branch has the same progress from the branch that has had multiple commits. Despite it being a fresh clone, I have imported the commits from the previous branch into the current branch. Along with this I have added the same notes from the old branch.
 
 Location:
 
