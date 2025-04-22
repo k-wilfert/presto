@@ -21,38 +21,37 @@ import com.facebook.presto.iceberg.rest.SessionType;
 
 public class IcebergJdbcConfig
 {
-    private String url;
-    private String user;
+
+    private String uri;
+    private String username;
     private String password;
-    private String driverClassName;
-    private SessionType sessionType;
+    private String driver;
     private boolean nestedNamespaceEnabled = true;
-    private String extraConnectionProperties;
 
     @NotNull
-    public String getUrl()
+    public String getUri()
     {
-        return url;
+        return uri;
     }
 
-    @Config("iceberg.jdbc.url")
-    @ConfigDescription("The JDBC URL to connect to the remote database")
-    public IcebergJdbcConfig setUrl(String url)
+    @Config("iceberg.jdbc.uri")
+    @ConfigDescription("JDBC connection string for Iceberg catalog (e.g. jdbc:postgresql://host:port/db)")
+    public IcebergJdbcConfig setUri(String uri)
     {
-        this.url = url;
+        this.uri = uri;
         return this;
     }
 
-    public String getUser()
+    public String getUsername()
     {
-        return user;
+        return username;
     }
 
-    @Config("iceberg.jdbc.user")
-    @ConfigDescription("The user name for JDBC connections")
-    public IcebergJdbcConfig setUser(String user)
+    @Config("iceberg.jdbc.username")
+    @ConfigDescription("JDBC user name")
+    public IcebergJdbcConfig setUsername(String username)
     {
-        this.user = user;
+        this.username = username;
         return this;
     }
 
@@ -62,37 +61,23 @@ public class IcebergJdbcConfig
     }
 
     @Config("iceberg.jdbc.password")
-    @ConfigDescription("The password for JDBC connections")
+    @ConfigDescription("JDBC password")
     public IcebergJdbcConfig setPassword(String password)
     {
         this.password = password;
         return this;
     }
 
-    @NotNull
-    public String getDriverClassName()
+    public String getDriver()
     {
-        return driverClassName;
+        return driver;
     }
 
-    @Config("iceberg.jdbc.driver-class-name")
-    @ConfigDescription("The fully-qualified JDBC driver class name")
-    public IcebergJdbcConfig setDriverClassName(String driverClassName)
+    @Config("iceberg.jdbc.driver")
+    @ConfigDescription("JDBC driver class name (e.g. org.postgresql.Driver)")
+    public IcebergJdbcConfig setDriver(String driver)
     {
-        this.driverClassName = driverClassName;
-        return this;
-    }
-
-    public SessionType getSessionType()
-    {
-        return sessionType;
-    }
-
-    @Config("iceberg.jdbc.session.type")
-    @ConfigDescription("The session type for JDBC catalog (NONE | USER)")
-    public IcebergJdbcConfig setSessionType(SessionType sessionType)
-    {
-        this.sessionType = sessionType;
+        this.driver = driver;
         return this;
     }
 
@@ -102,23 +87,10 @@ public class IcebergJdbcConfig
     }
 
     @Config("iceberg.jdbc.nested-namespace-enabled")
-    @ConfigDescription("Enable nested‑namespace support (default: true)")
+    @ConfigDescription("Allow nested namespaces in this catalog")
     public IcebergJdbcConfig setNestedNamespaceEnabled(boolean nestedNamespaceEnabled)
     {
         this.nestedNamespaceEnabled = nestedNamespaceEnabled;
-        return this;
-    }
-
-    public String getExtraConnectionProperties()
-    {
-        return extraConnectionProperties;
-    }
-
-    @Config("iceberg.jdbc.extra-connection-properties")
-    @ConfigDescription("Extra JDBC properties (key1=value1;key2=value2)")
-    public IcebergJdbcConfig setExtraConnectionProperties(String extraConnectionProperties)
-    {
-        this.extraConnectionProperties = extraConnectionProperties;
         return this;
     }
 }
