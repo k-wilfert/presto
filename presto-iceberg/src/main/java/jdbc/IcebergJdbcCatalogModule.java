@@ -21,21 +21,30 @@ import com.facebook.presto.iceberg.IcebergNativeMetadataFactory;
 import com.google.inject.Binder;
 import com.google.inject.Scopes;
 
+import com.facebook.airlift.configuration.AbstractConfigurationAwareModule;
+import com.facebook.presto.iceberg.IcebergMetadataFactory;
+import com.facebook.presto.iceberg.IcebergNativeCatalogFactory;
+import com.facebook.presto.iceberg.IcebergNativeMetadataFactory;
+import com.google.inject.Binder;
+import com.google.inject.Scopes;
+
+import static com.facebook.airlift.configuration.ConfigBinder.configBinder;
+
 public class IcebergJdbcCatalogModule
         extends AbstractConfigurationAwareModule
 {
     @Override
     public void setup(Binder binder)
     {
-        // Bind our new JDBC config class
-        ConfigBinder.configBinder(binder).bindConfig(IcebergJdbcConfig.class);
+        // Bind the JDBC config bean
+        configBinder(binder).bindConfig(IcebergJdbcConfig.class);
 
-        // Bind the native catalog factory to your JDBC implementation
+        // Bind the native catalog factory to the JDBC implementation
         binder.bind(IcebergNativeCatalogFactory.class)
                 .to(IcebergJdbcCatalogFactory.class)
                 .in(Scopes.SINGLETON);
 
-        // Metadata factory remains the same as other Iceberg connectors
+        // Use the standard Iceberg metadata factory
         binder.bind(IcebergMetadataFactory.class)
                 .to(IcebergNativeMetadataFactory.class)
                 .in(Scopes.SINGLETON);
