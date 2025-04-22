@@ -86,3 +86,21 @@ What has been done: Code has been written to some extent to all 3 new files for 
 They also have been moved from the rest directory to a new jdbc directory in an attempt to fix an issue with importing the proper packages. More work to be done later today.
 
 Location:
+
+************************************************************************************************************************************
+Name: Keith Wilfert
+
+Date: 4/22/2023
+
+Issue: Jdbc catalog support
+
+News: Final commit summary was not due last friday, instead being due this wednesday as I have been distracted by my other classes finishing up, finally I can finish working on this and hopefully complete the task at hand.
+
+What has been done: I have gotten the CLI to work by running the following command after running the server: ./presto-cli/target/presto-cli-0.293-SNAPSHOT-executable.jar --catalog memory --schema default
+If you get an error like I did, check inside of the target folder and ensure that the executables exist. For instance I had this error and changed versions from .293
+Also I have added the licensing blurb at the top of each of the files to fit with the rest of the files
+Also the getter functions have been changed from Optional<variable_type> to just the variable type to prevent unnecessary wrapping and make it easier to run in configuration.
+
+Location: IcebergJdbcConfig.java
+
+************************************************************************************************************************************

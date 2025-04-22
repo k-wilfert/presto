@@ -1,3 +1,16 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package jdbc;
 
 import com.facebook.airlift.configuration.Config;
@@ -17,9 +30,9 @@ public class IcebergJdbcConfig
     private String extraConnectionProperties;
 
     @NotNull
-    public Optional<String> getUrl()
+    public String getUrl()
     {
-        return Optional.ofNullable(url);
+        return url;
     }
 
     @Config("iceberg.jdbc.url")
@@ -30,9 +43,9 @@ public class IcebergJdbcConfig
         return this;
     }
 
-    public Optional<String> getUser()
+    public String getUser()
     {
-        return Optional.ofNullable(user);
+        return user;
     }
 
     @Config("iceberg.jdbc.user")
@@ -43,9 +56,9 @@ public class IcebergJdbcConfig
         return this;
     }
 
-    public Optional<String> getPassword()
+    public String getPassword()
     {
-        return Optional.ofNullable(password);
+        return password;
     }
 
     @Config("iceberg.jdbc.password")
@@ -57,9 +70,9 @@ public class IcebergJdbcConfig
     }
 
     @NotNull
-    public Optional<String> getDriverClassName()
+    public String getDriverClassName()
     {
-        return Optional.ofNullable(driverClassName);
+        return driverClassName;
     }
 
     @Config("iceberg.jdbc.driver-class-name")
@@ -70,9 +83,9 @@ public class IcebergJdbcConfig
         return this;
     }
 
-    public Optional<SessionType> getSessionType()
+    public SessionType getSessionType()
     {
-        return Optional.ofNullable(sessionType);
+        return sessionType;
     }
 
     @Config("iceberg.jdbc.session.type")
@@ -96,9 +109,9 @@ public class IcebergJdbcConfig
         return this;
     }
 
-    public Optional<String> getExtraConnectionProperties()
+    public String getExtraConnectionProperties()
     {
-        return Optional.ofNullable(extraConnectionProperties);
+        return extraConnectionProperties;
     }
 
     @Config("iceberg.jdbc.extra-connection-properties")
