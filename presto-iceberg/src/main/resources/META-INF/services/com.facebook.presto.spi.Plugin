@@ -1,1 +1,1 @@
-com.facebook.presto.iceberg.IcebergJdbcPlugin
+com.facebook.presto.iceberg.jdbc.IcebergJdbcPlugin
